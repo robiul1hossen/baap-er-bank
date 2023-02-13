@@ -1,8 +1,9 @@
 document.getElementById("deposit-btn").addEventListener("click", function (e) {
   const depositInput = document.getElementById("deposit-input");
   const depositValue = parseFloat(depositInput.value);
+  depositInput.value = "";
 
-  if (depositValue <= 0 || depositValue == "") {
+  if (depositValue <= 0 || depositValue == undefined) {
     alert("You have to deposit a minimum amount");
   } else {
     let initialDeposit = document.getElementById("initial-deposit").innerText;
@@ -20,10 +21,11 @@ document.getElementById("deposit-btn").addEventListener("click", function (e) {
 /* WithDraw Amount function */
 
 document.getElementById("withdraw-btn").addEventListener("click", function () {
-  const withdrawInput = document.getElementById("withdraw-input").value;
-  const withdrawInputValue = parseFloat(withdrawInput);
+  const withdrawInput = document.getElementById("withdraw-input");
+  const withdrawInputValue = parseFloat(withdrawInput.value);
+  withdrawInput.value = "";
 
-  if (withdrawInputValue <= 0) {
+  if (withdrawInputValue <= 0 || withdrawInputValue === "") {
     alert("You have to withdraw a minimum amount");
   } else {
     let initialWithdraw = document.getElementById("initial-withdraw").innerText;
